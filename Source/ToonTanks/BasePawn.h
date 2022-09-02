@@ -14,10 +14,6 @@ class TOONTANKS_API ABasePawn : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ABasePawn();
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	float Speed = 400.f;
-
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

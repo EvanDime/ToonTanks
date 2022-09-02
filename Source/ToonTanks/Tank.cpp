@@ -5,11 +5,12 @@
 
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 ATank::ATank()
 {
 	// PrimaryActorTick.bCanEverTick = true;
-	
+
 	CameraArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Camera Arm"));
 	CameraArm->SetupAttachment(RootComponent);
 
@@ -28,5 +29,7 @@ void ATank::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ATank::Move(const float Value)
 {
-	UE_LOG(LogTemp, Display, TEXT("We shmoovin %f"), Value);
+	FVector DeltaLocation(0.f);
+	DeltaLocation.X = Value * UGameplayStatics::GetWorldDeltaSeconds(this) * Speed;
+	AddActorLocalOffset(DeltaLocation);
 }
