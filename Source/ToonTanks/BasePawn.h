@@ -28,7 +28,9 @@ private:
 	
 	UPROPERTY()
 	UStaticMeshComponent* TurretMesh;
-	
+
+	UPROPERTY()
+	USceneComponent* ProjectileSpawnPoint;
 
 public:	
 	// Called every frame
