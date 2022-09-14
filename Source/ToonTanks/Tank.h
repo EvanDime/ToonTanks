@@ -25,6 +25,8 @@ public:
 
 	void HandleDestruction();
 
+	bool bAlive = true;
+
 	APlayerController* GetTankPlayerController() const { return TankPlayerController; };
 protected:
 	// Called when the game starts or when spawned
